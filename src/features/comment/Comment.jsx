@@ -12,16 +12,24 @@ export const Comment = (props) => {
         dispatch(fetchComment(props.commentId))
     }, [props.commentId])
 
+    function formatDate(seconds) {
+        const date = new Date(seconds * 1000)
+        return date.toUTCString().slice(5, 22)
+    }
+
 
     return (
 
         <ul>
-             {comment
-                && !comment.deleted
-                && !comment.dead
-                 ? <li>{parse(comment.text)}</li>
-                 : null
-             }
+            {comment
+            && !comment.deleted
+            && !comment.dead
+                ? <li>
+                    <h4>{comment.by}</h4><span>{formatDate(comment.time)}</span>
+                    <p>{parse(comment.text)}</p>
+                </li>
+                : null
+            }
         </ul>
     )
 }
