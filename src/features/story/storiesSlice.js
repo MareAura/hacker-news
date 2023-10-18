@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchStories = createAsyncThunk('storyId/fetchStoriesId', async () => {
         const storiesIds = await axios
-            .get('https://hacker-news.firebaseio.com/v0/newstories.json')
+            .get('https://hacker-news.firebaseio.com/v0/topstories.json')
             .then((response) => response.data.slice(0, 3))
 
         const storiesPromises = storiesIds.map(storyId => {
