@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import {fetchStory} from "./storyPageSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
@@ -24,7 +24,6 @@ export const StoryView = () => {
     }
 
     const kidsIds = story.story.kids ? story.story.kids : []
-
     return (
         <div>
             <h2>Story</h2>
