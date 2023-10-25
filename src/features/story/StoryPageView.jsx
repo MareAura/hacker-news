@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import {useEffect} from "react";
 import {fetchStory} from "./storyPageSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
@@ -41,8 +41,9 @@ export const StoryView = () => {
                                 {kidsIds.length}
                             </div>
                         </div>
-                        {kidsIds.map(id => <Comment key={id} commentId={id}/>)}
                         <Link to={`/`}>Main page</Link>
+                        <h2>Comments</h2>
+                        {kidsIds.map(id => <Comment key={id} commentId={id}/>)}
                     </div>
             ) : null}
         </div>

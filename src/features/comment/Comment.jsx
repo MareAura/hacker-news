@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchComment} from "./commentSlice.js";
 import parse from 'html-react-parser'
@@ -30,7 +30,6 @@ export const Comment = (props) => {
     }
 
     return (
-
         <div>
             {comment
             && !comment.deleted

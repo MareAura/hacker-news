@@ -1,14 +1,17 @@
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import {fetchStories} from "./storiesSlice.js";
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 export const StoriesView = () => {
     const stories = useSelector((state) => state.stories)
+
+    let { storiesType } = useParams()
+
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchStories())
-    }, [])
+        dispatch(fetchStories(storiesType))
+    }, [storiesType])
 
     function formatDate (seconds) {
         const date = new Date(seconds*1000)
