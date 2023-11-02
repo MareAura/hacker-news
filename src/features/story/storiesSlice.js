@@ -7,10 +7,11 @@ const initialState = {
     error: ''
 }
 
-export const fetchStories = createAsyncThunk('storyId/fetchStoriesId', async (storiesType) => {
+export const fetchStories = createAsyncThunk('storyId/fetchStories', async (args) => {
+
         const storiesIds = await axios
-            .get(`https://hacker-news.firebaseio.com/v0/${storiesType}.json`)
-            .then((response) => response.data.slice(0, 3))
+            .get(`https://hacker-news.firebaseio.com/v0/${args.storiesType}.json`)
+            .then((response) => response.data.slice(0, (20 * args.page)))
 
         const storiesPromises = storiesIds.map(storyId => {
             return axios

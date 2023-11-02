@@ -9,10 +9,12 @@ function App() {
     return (
         <div className='App'>
             <Navbar/>
-            <Routes>
-                <Route path="/:storiesType" element={<StoriesView />} />
-                <Route path="/story/:storyId" element={<StoryView />} />
-            </Routes>
+            <div className='main-content'>
+                <Routes>
+                    <Route path="/:storiesType" element={<StoriesView />} />
+                    <Route path="/story/:storyId" element={<StoryView />} />
+                </Routes>
+            </div>
         </div>
     )
 }

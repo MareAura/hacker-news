@@ -1,17 +1,20 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {fetchStories} from "./storiesSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
+import comment from "../../assets/comment.png";
 
 export const StoriesView = () => {
     const stories = useSelector((state) => state.stories)
+
+    const [page, setPage] = useState(1)
 
     let { storiesType } = useParams()
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchStories(storiesType))
-    }, [storiesType])
+        dispatch(fetchStories({storiesType, page}))
+    }, [storiesType, page])
 
     function formatDate (seconds) {
         const date = new Date(seconds*1000)
@@ -20,15 +23,13 @@ export const StoriesView = () => {
 
     return (
         <div>
-            <h2>List of news</h2>
             {stories.loading && <div>Loading...</div>}
             {!stories.loading && stories.error ? <div>Error: {stories.error}</div> : null}
             {!stories.loading && stories.stories.length ? (
-                <ul>
+                <div>
                     {
                         stories.stories.map(story =>(
-                        <li key={story.id}>
-                            <div>
+                            <div key={story.id} className='story-card'>
                                 <Link to={`/story/${story.id}`}>
                                     {story.title}
                                 </Link>
@@ -45,12 +46,15 @@ export const StoriesView = () => {
                                         <img className='icon' src='src/assets/time.png' alt='time icon'/>
                                         {formatDate(story.time)}
                                     </div>
+                                    <div className='story-info'><img className='icon' src={comment} alt='comment icon'/>
+                                        {(story.kids ? story.kids : []).length}
+                                    </div>
                                 </div>
                             </div>
-                        </li>
                         ))
                     }
-                </ul>
+                    <button onClick={() => setPage(page + 1)}>More</button>
+                </div>
             ) : null}
         </div>
     )

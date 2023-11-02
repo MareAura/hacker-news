@@ -6,6 +6,7 @@ import like from '../../assets/like.png'
 import time from '../../assets/time.png'
 import user from '../../assets/user.png'
 import comment from '../../assets/comment.png'
+import forward from '../../assets/forward.png'
 import {Comment} from "../comment/Comment.jsx";
 
 export const StoryView = () => {
@@ -25,14 +26,18 @@ export const StoryView = () => {
 
     const kidsIds = story.story.kids ? story.story.kids : []
     return (
-        <div>
-            <h2>Story</h2>
+        <div className='story-page'>
             {story.loading && <div>Loading...</div>}
             {!story.loading && story.error ? <div>Error: {story.error}</div> : null}
             {!story.loading && story.story ? (
                     <div>
-                        <div> {story.story.title} <a href={story.story.url} target="_blank">Read the source</a></div>
-                        {story.story.text ? <div>story.story.text</div> : null}
+                        <div className='story-link-wrapper'>
+                            <a className='story-link' href={story.story.url} target="_blank" rel='noreferrer'>
+                                {story.story.title}
+                                <img className='forward-icon' src={forward} alt='forward icon'/>
+                            </a>
+                        </div>
+                        {story.story.text ? <div>{story.story.text}</div> : null}
                         <div className='story-info-wrapper'>
                             <div className='story-info'><img className='icon' src={like} alt='like icon'/>{story.story.score}</div>
                             <div className='story-info'><img className='icon' src={user} alt='author icon'/> by {story.story.by}</div>
@@ -41,9 +46,11 @@ export const StoryView = () => {
                                 {kidsIds.length}
                             </div>
                         </div>
-                        <Link to={`/`}>Main page</Link>
-                        <h2>Comments</h2>
-                        {kidsIds.map(id => <Comment key={id} commentId={id}/>)}
+                        {/*<Link to={`/topstories`}>Main page</Link>*/}
+                        <div className='comments'>
+                            <h3>Comments</h3>
+                            {kidsIds.map(id => <Comment key={id} commentId={id}/>)}
+                        </div>
                     </div>
             ) : null}
         </div>
