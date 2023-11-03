@@ -27,7 +27,19 @@ export const StoryView = () => {
     const kidsIds = story.story.kids ? story.story.kids : []
     return (
         <div className='story-page'>
-            {story.loading && <div>Loading...</div>}
+            {story.loading && <div className='loading'>
+                <div className="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            }
             {!story.loading && story.error ? <div>Error: {story.error}</div> : null}
             {!story.loading && story.story ? (
                     <div>
@@ -41,10 +53,10 @@ export const StoryView = () => {
                         <div className='story-info-wrapper'>
                             <div className='story-info'><img className='icon' src={like} alt='like icon'/>{story.story.score}</div>
                             <div className='story-info'><img className='icon' src={user} alt='author icon'/> by {story.story.by}</div>
-                            <div className='story-info'><img className='icon' src={time} alt='time icon'/> {formatDate(story.story.time)}</div>
                             <div className='story-info'><img className='icon' src={comment} alt='comment icon'/>
                                 {kidsIds.length}
                             </div>
+                            <div className='story-info'><img className='icon' src={time} alt='time icon'/> {formatDate(story.story.time)}</div>
                         </div>
                         {/*<Link to={`/topstories`}>Main page</Link>*/}
                         <div className='comments'>

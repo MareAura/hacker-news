@@ -50,21 +50,20 @@ p {
 .navbar-items {
   display: flex;
   flex-direction: row;
+  margin-right: 20px;
 }
 
 .navbar-item {
-  margin-right: 30px;
+  padding-left: 30px;
   font-family: 'Oswald', sans-serif;
   font-size: 25px;
   color: white;
 }
 
 .navbar-logo {
-  margin-right: 25px;
   margin-left: 20px;
   color: white;
 }
-
 
 .story-card {
   /*margin: 15px 0;*/
@@ -84,6 +83,7 @@ p {
 
 .story-info-wrapper {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   margin-top: 5px;
 }
@@ -93,6 +93,7 @@ p {
   flex-direction: row;
   align-items: center;
   margin-right: 20px;
+  margin-top: 5px;
 }
 
 .icon {
@@ -146,6 +147,7 @@ p {
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .comment-info {
@@ -160,6 +162,7 @@ p {
 
 .comment-text{
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 
 .comment-icon {
@@ -177,4 +180,158 @@ p {
   color: #444444;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
+}
+
+.more-button {
+  border: 1px solid #3b3b3b;
+  background-color: #3b3b3b;
+  margin-top: 20px;
+  margin-left: 25px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.more-button:hover {
+  background-color: black;
+}
+
+.story-cards-wrapper {
+  padding-bottom: 25px;
+  min-height: 100vh;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+/*-----------*/
+
+.lds-roller {
+  scale: 50%;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #595959;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*-----------*/
+
+pre {
+  margin: 1em 0px;
+  text-wrap: wrap;
+}
+
+
+@media screen and (max-width: 420px) {
+  .navbar-item {
+    font-size: 26px;
+    padding-left: 10px;
+  }
+  .navbar-logo {
+    margin-left: 15px;
+  }
+  .navbar-items {
+    margin-right: 15px;
+  }
+  .navbar svg {
+    width: 150px;
+  }
+  .story-page {
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .navbar-item {
+    font-size: 22px;
+  }
+  .navbar-items {
+    margin-right: 10px;
+  }
+  .navbar svg {
+    width: 130px;
+  }
 }

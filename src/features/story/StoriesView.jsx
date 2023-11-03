@@ -22,10 +22,8 @@ export const StoriesView = () => {
     }
 
     return (
-        <div>
-            {stories.loading && <div>Loading...</div>}
-            {!stories.loading && stories.error ? <div>Error: {stories.error}</div> : null}
-            {!stories.loading && stories.stories.length ? (
+        <div className='story-cards-wrapper'>
+            {stories && stories.stories.length ? (
                 <div>
                     {
                         stories.stories.map(story =>(
@@ -53,9 +51,22 @@ export const StoriesView = () => {
                             </div>
                         ))
                     }
-                    <button onClick={() => setPage(page + 1)}>More</button>
+                    {!stories.loading && <button onClick={() => setPage(page + 1)} className='more-button'>More</button>}
                 </div>
             ) : null}
+            {stories.loading && <div className='loading'>
+                <div className="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>}
+            {!stories.loading && stories.error ? <div>Error: {stories.error}</div> : null}
         </div>
     )
 }
