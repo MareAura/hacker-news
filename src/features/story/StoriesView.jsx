@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 import {fetchStories} from "./storiesSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
+import like from '../../assets/like.png'
+import time from '../../assets/time.png'
+import user from '../../assets/user.png'
 import comment from "../../assets/comment.png";
 
 export const StoriesView = () => {
@@ -33,15 +36,15 @@ export const StoriesView = () => {
                                 </Link>
                                 <div className='story-info-wrapper'>
                                     <div className='story-info'>
-                                        <img className='icon' src='src/assets/like.png' alt='like icon'/>
+                                        <img className='icon' src={like} alt='like icon'/>
                                         {story.score}
                                     </div>
                                     <div className='story-info'>
-                                        <img className='icon' src='src/assets/user.png' alt='author icon'/>
+                                        <img className='icon' src={user} alt='author icon'/>
                                         by {story.by}
                                     </div>
                                     <div className='story-info'>
-                                        <img className='icon' src='src/assets/time.png' alt='time icon'/>
+                                        <img className='icon' src={time} alt='time icon'/>
                                         {formatDate(story.time)}
                                     </div>
                                     <div className='story-info'><img className='icon' src={comment} alt='comment icon'/>
