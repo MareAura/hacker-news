@@ -25,6 +25,7 @@ export const StoryView = () => {
     }
 
     const kidsIds = story.story.kids ? story.story.kids : []
+
     return (
         <div className='story-page'>
             {story.loading && <div className='loading'>
@@ -61,7 +62,10 @@ export const StoryView = () => {
                         {/*<Link to={`/topstories`}>Main page</Link>*/}
                         <div className='comments'>
                             <h3>Comments</h3>
-                            {kidsIds.map(id => <Comment key={id} commentId={id}/>)}
+                            {kidsIds.length === 0
+                                ? <div className='no-comments'>No comments yet</div>
+                                : kidsIds.map(id => <Comment key={id} commentId={id}/>)
+                            }
                         </div>
                     </div>
             ) : null}
