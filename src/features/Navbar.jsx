@@ -4,6 +4,7 @@ const Navbar=()=>{
     return (
         <div className='navbar-wrapper'>
             <div className='navbar'>
+                <Link to='/'> 
                 <div className='navbar-logo'>
                     <svg width="170" height="45" viewBox="0 0 370 77.13184722696455"
                          className="css-1j8o68f">
@@ -26,12 +27,13 @@ const Navbar=()=>{
                         </g>
                     </svg>
                 </div>
+                </Link>
                 <div className='navbar-items'>
                     <div className='navbar-item'>
-                        <Link to="/newstories">New</Link>
+                        <Link to="/topstories">Top</Link>
                     </div>
                     <div className='navbar-item'>
-                        <Link to="/topstories">Top</Link>
+                        <Link to="/newstories">New</Link>
                     </div>
                     <div className='navbar-item'>
                         <Link to="/beststories">Best</Link>
