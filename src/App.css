@@ -57,27 +57,7 @@ p {
   color: white;
 }
 
-.options {
-  padding: 20px 30px;
-}
-
-.options-item {
-  margin-top: 15px;
-}
-
-.options-item a {
-  text-decoration: none;
-  color: black;
-  font-size: large;
-  font-weight: 600;
-}
-
-.options-item a::before {
-  content: '🔗 ';
-}
-
 .story-card {
-  /*margin: 15px 0;*/
   padding: 15px 25px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -234,7 +214,7 @@ pre {
   justify-content: center;
 }
 
-/*-----------*/
+/* loading animation */
 
 .lds-roller {
   scale: 50%;
