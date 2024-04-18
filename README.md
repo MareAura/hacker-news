@@ -1,8 +1,34 @@
-# React + Vite
+# HackerNews Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+App is available [here](https://jolly-pastelito-e9c2be.netlify.app/)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project serves as a user interface for accessing the latest news and discussions from the popular computer science community and news aggregator [Hacker News](https://news.ycombinator.com/). Built upon Hacker News's official [API](https://github.com/HackerNews/API), the interface provides users with access to a curated selection of articles, discussions, and insights from the Hacker News community.
+
+The project is developed in **JavaScript** using the **React** and **Redux** (+ Redux Toolkit) libraries.
+
+
+### Key Features
+
+- Three news categories: top, new, and best.
+- Basic information about each news article, including name, link to the source, author, publication date, comments, and likes counter.
+- Each news article has its own page with comments displayed in a tree structure for better readability.
+- Pagination support for navigating through multiple pages of news articles.
+- Responsive design ensuring optimal viewing experience across various devices.
+
+## Running the project
+
+Clone down this repository. You will need node and npm installed globally on your machine.
+
+Installation:
+
+* `npm install`
+
+To Start Server:
+
+* `npm run dev`
+
+To Visit App:
+
+* http://localhost:5173/
